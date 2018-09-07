@@ -30,8 +30,6 @@ public class Servlet extends HttpServlet {
                     n++;
                 }
         }
-            
-            
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
