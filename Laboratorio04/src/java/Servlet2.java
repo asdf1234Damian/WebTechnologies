@@ -23,6 +23,7 @@ public class Servlet2 extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession();
+        
         String numLineas = (String) session.getAttribute("numLineasClave");
         
         PrintWriter out = response.getWriter();

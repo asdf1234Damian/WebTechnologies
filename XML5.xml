@@ -1,0 +1,6 @@
+<!DOCTYPE raiz PUBLIC "-//RPV//DESCRIPCION//ES" "dtd1.dtd">
+<raiz attributo1="VALOR">
+  <a>
+    <b>CONTENIDO</b>
+  </a>
+</raiz>
