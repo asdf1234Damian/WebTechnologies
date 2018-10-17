@@ -1,0 +1,5 @@
+<raiz2 atributoa="cadena" atributob="cadena2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="xml30.xsd">
+  <a></a>
+  <b></b>
+  <c></c>
+</raiz2>
