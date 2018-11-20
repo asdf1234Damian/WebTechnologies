@@ -1,0 +1,24 @@
+body{
+  background: rgb(47, 47, 47);
+}
+
+h1{
+  font-size: 150%;
+  color: white;
+  text-align: center;
+}
+
+p{
+  font-size: 150%;
+  color: white;
+  text-align: justify;
+}
+p::first-letter{
+  font-size: 200%;
+}
+
+img{
+  display: block;
+  margin-left: 30%;
+  margin-right: 30%;
+}

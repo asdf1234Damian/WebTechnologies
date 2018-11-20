@@ -1,0 +1,24 @@
+<!DOCTYPE raiz[
+<!ELEMENT raiz (a)>
+<!ELEMENT a (#PCDATA)>
+<!ATTLIST a nombre (a|b|c|d) #REQUIRED >
+]>
+
+<raiz>
+
+<a nombre ="a"> </a>
+
+</raiz>
+
+<!--There are 10 basic rules to apply when creating an xml
+1 Only one root ELEMENT
+2 Have to be opened and closed, each tag
+3 Elements cant be mixed
+4 Elements most be correctly nested
+5 Caps Sensitive
+6 Atributes most be in between quotes
+7 Names can contain letters, numbers,
+8 Names cant contain spaces
+9 Names cant start with numbers
+10 XML Prolog
+-->

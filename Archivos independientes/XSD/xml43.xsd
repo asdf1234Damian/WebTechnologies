@@ -1,9 +1,0 @@
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:complexType name="base" mixed="true">
-<xs:sequence>
-  <xs:element name ="a" type="xs:string"/>
-</xs:sequence>
-<xs:attribute name="atributo" type="xs:string" use="required"/>
-</xs:complexType>
-  <xs:element name="raiz2" type="base"/>
-</xs:schema>
