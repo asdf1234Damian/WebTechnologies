@@ -60,11 +60,8 @@ public class Login extends HttpServlet{
             Element e;
             for(int i=0;i<users.size(); i++){
                 e = (Element)users.get(i);
-                System.out.println(e.getChild("email").getTextTrim());
-                System.out.println(mail);
-                System.out.println(e.getChild("pass").getTextTrim());
-                System.out.println(password);
-                if (e.getChild("email").getTextTrim().equals(mail) && e.getChild("pass").getTextTrim().equals(password)){
+                if (e.getChild("email").getTextTrim().equals(mail) && 
+                    e.getChild("pass").getTextTrim().equals(password)){
                     userName=e.getChild("usrName").getTextTrim();
                     uType=e.getChild("uType").getTextTrim();
                     break;
