@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataBase xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="user.xsd">
+  <user>
+    <usrName>Damian</usrName>
+    <email>asdf1234damian@gmail.com</email>
+    <pass>asdf1234</pass>
+    <uType>Professor</uType>
+  </user>
+  
+  <user>
+    <usrName>Ruben</usrName>
+    <email>ruben@gmail.com</email>
+    <pass>asdf1234</pass>
+    <uType>Admin</uType>
+  </user>
+  
+</dataBase>
