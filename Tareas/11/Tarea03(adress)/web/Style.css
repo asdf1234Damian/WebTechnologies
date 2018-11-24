@@ -1,0 +1,56 @@
+body{
+  background: rgb(47, 47, 47);
+}
+
+h1{
+  font-size: 150%;
+  color: white;
+}
+
+p{
+  font-size: 150%;
+  color: white;
+}
+
+address{
+  color: white;
+}
+
+.main{
+  margin-left: 160px;
+}
+
+
+.main address::first-letter{
+  font-size: 200%;
+  font-weight: bold;
+}
+
+.sidenav{
+  height: 100%;
+  width: 160px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color:black;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.sidenav::first-letter{
+  font-size: 200%;
+}
+
+.sidenav a{
+  padding: 6px  8px 6px 16px;
+  text-decoration: none;
+  font-size: 200%;
+  font-weight: bold;
+  color: white;
+  display: block;
+}
+
+.sidenav a::first-letter{
+  font-size: 150%;
+}
