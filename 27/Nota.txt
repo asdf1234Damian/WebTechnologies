@@ -1,7 +1,0 @@
-Profesor, la verdad no soy de la clase de personas que usan IDES, he usado 
-Netbeans porque es mas facil desarrollar cosas de java en ella, pero para mi 
-siempre ha sido mejor Atom para hacer mis programas. En vez de usar XMLSpy, conseguir una licencia, un correo y de mas, preferí usar Atom con el 
-packete linter-xmllint y autocomplete-xml.
-Le dejo el screenshot, incluso se lo recomiendo para sus siguientes cursos.
-Es gratuito, funciona igual que XMLspy para analizar la sintaxis, sólamente 
-no crea los schemas automaticamente y de mas.

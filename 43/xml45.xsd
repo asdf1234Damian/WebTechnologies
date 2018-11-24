@@ -1,9 +1,0 @@
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:element name="raiz2">
-  <xs:simpleType>
-    <xs:restrinction base="xs:string">
-    <xs:lenght value="3"/>
-  </xs:restrinction>
-  </xs:simpleType>
-</xs:element>
-</xs:schema>
