@@ -1,6 +1,5 @@
 body, html {
     height: 100%;
-    background-repeat: no-repeat;
     background-image: linear-gradient(rgb(255, 255, 255), rgb(0, 0, 0));
 }
 
@@ -9,7 +8,7 @@ h3{
 }
 
 .card-container.card {
-    max-width: 350px;
+    max-width: 400px;
     padding: 40px 40px;
 }
 
@@ -71,9 +70,15 @@ h3{
     box-sizing: border-box;
 }
 
+
+.failcontainer{
+    padding-top: 20%;
+    background-color: #404040;
+}
+
 .form-signin #inputEmail,
 .form-signin #inputPassword {
-    direction: ltr;
+
     height: 44px;
     font-size: 16px;
 }
