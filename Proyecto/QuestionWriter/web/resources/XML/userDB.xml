@@ -6,12 +6,12 @@
     <pass>asdf1234</pass>
     <uType>Professor</uType>
   </user>
-  
+
   <user>
     <usrName>Ruben</usrName>
     <email>ruben@gmail.com</email>
     <pass>asdf1234</pass>
     <uType>Admin</uType>
   </user>
-  
+
 </dataBase>

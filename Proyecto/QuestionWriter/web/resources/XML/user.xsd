@@ -1,7 +1,5 @@
 <?xml version="1.0"?>
-<xs:schema version="1.0"
-           xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           elementFormDefault="qualified">
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
 <!--Elementos simples-->
 <xs:element name="usrName" type="xs:string"/>
 <xs:element name="email" type="xs:string"/>
