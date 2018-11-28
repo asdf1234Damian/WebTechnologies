@@ -4,9 +4,65 @@
         <servlet-name>Login</servlet-name>
         <servlet-class>Login</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ProfCuestionarios</servlet-name>
+        <servlet-class>professorpkg.ProfCuestionarios</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ProfNuevoCuestionario</servlet-name>
+        <servlet-class>professorpkg.ProfNuevoCuestionario</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ProfEditarCuestionario</servlet-name>
+        <servlet-class>professorpkg.ProfEditarCuestionario</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminUsuarios</servlet-name>
+        <servlet-class>adminpkg.AdminUsuarios</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EliminarUsuario</servlet-name>
+        <servlet-class>adminpkg.EliminarUsuario</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ProfEliminarCuestionario</servlet-name>
+        <servlet-class>professorpkg.ProfEliminarCuestionario</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>NuevoUsuario</servlet-name>
+        <servlet-class>adminpkg.NuevoUsuario</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProfCuestionarios</servlet-name>
+        <url-pattern>/ProfCuestionarios</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProfNuevoCuestionario</servlet-name>
+        <url-pattern>/ProfNuevoCuestionario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProfEditarCuestionario</servlet-name>
+        <url-pattern>/ProfEditarCuestionario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminUsuarios</servlet-name>
+        <url-pattern>/AdminUsuarios</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EliminarUsuario</servlet-name>
+        <url-pattern>/EliminarUsuario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProfEliminarCuestionario</servlet-name>
+        <url-pattern>/ProfEliminarCuestionario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>NuevoUsuario</servlet-name>
+        <url-pattern>/NuevoUsuario</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

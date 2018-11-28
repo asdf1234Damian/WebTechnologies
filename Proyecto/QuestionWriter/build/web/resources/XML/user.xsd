@@ -1,12 +1,11 @@
 <?xml version="1.0"?>
-<xs:schema version="1.0"
-           xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           elementFormDefault="qualified">
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
 <!--Elementos simples-->
 <xs:element name="usrName" type="xs:string"/>
 <xs:element name="email" type="xs:string"/>
 <xs:element name="pass" type="xs:string" />
 <xs:element name="uType" type="xs:string"/>
+<xs:element name="grupo" type="xs:string"/>
 <!--Elementos complejos-->
 <!--Usuario-->
 <xs:element name="user">
@@ -16,6 +15,7 @@
         <xs:element ref="email"/>
         <xs:element ref="pass"/>
         <xs:element ref="uType"/>
+        <xs:element ref="grupo" minOccurs="0" maxOccurs="1"/>
       </xs:sequence>
     </xs:complexType>
 </xs:element>

@@ -4,7 +4,7 @@
     <usrName>Damian</usrName>
     <email>asdf1234damian@gmail.com</email>
     <pass>asdf1234</pass>
-    <uType>Professor</uType>
+    <uType>Admin</uType>
   </user>
 
   <user>
@@ -12,6 +12,21 @@
     <email>ruben@gmail.com</email>
     <pass>asdf1234</pass>
     <uType>Admin</uType>
+  </user>
+
+  <user>
+    <usrName>Raúl</usrName>
+    <email>raul@gmail.com</email>
+    <pass>asdf1234</pass>
+    <uType>Admin</uType>
+    <grupo>2CM8</grupo>
+  </user>
+
+  <user>
+    <usrName>Vilchis</usrName>
+    <email>mafervm@gmail.com</email>
+    <pass>asdf1234</pass>
+    <uType>Professor</uType>
   </user>
 
 </dataBase>

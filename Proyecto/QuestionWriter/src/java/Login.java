@@ -6,7 +6,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import org.jdom.Document;
 import org.jdom.Element;
 import org.jdom.JDOMException;
 import org.jdom.input.SAXBuilder;
@@ -39,12 +38,18 @@ public class Login extends HttpServlet{
         String uType="TBD";
         //Decide que pagina regresara, fail por default
         try {
-            //Crea el Jdom
+            Element e;//Elemento auxiliar
+            //Crea el Jdom para la base de usuarios
             String DBPath=request.getSession().getServletContext().getRealPath("/resources/XML/userDB.xml");
             File DBfile = new File(DBPath);
             Element root = SAXbuilder.build(DBfile).getRootElement();
             List users = root.getChildren();
-            Element e;
+            //Crea el jdmom parala base de questionarios
+            DBPath=request.getSession().getServletContext().getRealPath("/resources/XML/questionarioDB.xml");
+            DBfile = new File(DBPath);
+            root = SAXbuilder.build(DBfile).getRootElement();
+            List questionarios = root.getChildren();
+            
             //Busca el usuario en  la base
             for(int i=0;i<users.size(); i++){
                 e = (Element)users.get(i);
@@ -61,13 +66,11 @@ public class Login extends HttpServlet{
             sesion.setAttribute("email",mail);
             switch (uType){
                 case "Admin":
-                    request.getRequestDispatcher("admin/menu.html").forward(request, response);
+                    response.sendRedirect("AdminUsuarios");
                 break;
 
                 case "Professor":
-                    Document htmlresponse ;
-                    request.getRequestDispatcher("professor/menu.jsp").forward(request, response);
-                    
+                    response.sendRedirect("ProfCuestionarios");                    
                 break;
 
                 case "Student":
@@ -79,10 +82,9 @@ public class Login extends HttpServlet{
                 break;
             }
         } catch (JDOMException ex) {
-            //En caso de no poder crear el JDOM regresa una respuesta diferente
-            //https://examples.javacodegeeks.com/enterprise-java/servlet/java-servlet-requestdispatcher-tutorial/
             request.getRequestDispatcher("databaseerror.html").forward(request,response);
         }
 
     }
+        
 }

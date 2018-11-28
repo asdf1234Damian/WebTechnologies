@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataBase xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="questionario.xsd">
+  <questionario>
+    <titulo>Questionario 1</titulo>
+    <autor>asdf1234damian@gmail.com</autor>
+    <grupo>2CM8</grupo>
+    <pregunta>
+      <sequencial>
+        <contenido>Pregunta uno?</contenido>
+        <feedbackCorrecto>:)</feedbackCorrecto>
+        <feedbackIncorrecto>:(</feedbackIncorrecto>
+        <respuestas>
+          <respuesta>
+            <contenido> Respuesta A</contenido>
+          </respuesta>
+          <respuesta>
+            <contenido> Respuesta B</contenido>
+          </respuesta>
+        </respuestas>
+      </sequencial>
+    </pregunta>
+    <pregunta>
+      <parcial>
+        <contenido>Pregunta dos?</contenido>
+        <feedbackCorrecto>:)</feedbackCorrecto>
+        <feedbackIncorrecto>:(</feedbackIncorrecto>
+        <respuestas>
+          <respuesta>
+            <contenido>Respuesta A</contenido>
+            <puntaje> 5 </puntaje>
+          </respuesta>
+          <respuesta>
+            <contenido>Respuesta b</contenido>
+            <puntaje> 5 </puntaje>
+          </respuesta>
+        </respuestas>
+      </parcial>
+    </pregunta>
+  </questionario>
+
+  <questionario>
+    <titulo>Questionario 2</titulo>
+    <autor>asdf1234damian@gmail.com</autor>
+    <grupo>2CM9</grupo>
+  </questionario>
+</dataBase>
