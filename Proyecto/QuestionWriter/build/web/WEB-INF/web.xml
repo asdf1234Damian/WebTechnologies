@@ -32,6 +32,18 @@
         <servlet-name>NuevoUsuario</servlet-name>
         <servlet-class>adminpkg.NuevoUsuario</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LogOut</servlet-name>
+        <servlet-class>LogOut</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditarUsuario</servlet-name>
+        <servlet-class>adminpkg.EditarUsuario</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GuardarCambiosUsuario</servlet-name>
+        <servlet-class>adminpkg.GuardarCambiosUsuario</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -63,6 +75,18 @@
     <servlet-mapping>
         <servlet-name>NuevoUsuario</servlet-name>
         <url-pattern>/NuevoUsuario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LogOut</servlet-name>
+        <url-pattern>/LogOut</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditarUsuario</servlet-name>
+        <url-pattern>/EditarUsuario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GuardarCambiosUsuario</servlet-name>
+        <url-pattern>/GuardarCambiosUsuario</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
