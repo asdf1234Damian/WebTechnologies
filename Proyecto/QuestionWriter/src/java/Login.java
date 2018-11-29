@@ -11,17 +11,6 @@ import org.jdom.JDOMException;
 import org.jdom.input.SAXBuilder;
 
 public class Login extends HttpServlet{
-
-    private Element genUser(String id, String name, String email, String pass, String type){
-        Element user = new Element("user");
-        user.addContent(new Element("id").addContent(id));
-        user.addContent(new Element("usrName").addContent(name));
-        user.addContent(new Element("email").addContent(email));
-        user.addContent(new Element("pass").addContent(pass));
-        user.addContent(new Element("uType").addContent(type));
-        return user;
-    }
-
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException{
         //Inicializacion
