@@ -67,6 +67,7 @@ public class ProfCuestionarios extends HttpServlet {
             "        <div class=\"w3-sidebar w3-bar-block w3-black w3-xxlarge center\" style=\"width:70px\">\n" +
             "            <a href=\"professor/NuevoCuestionario.html\" class=\"w3-bar-item w3-button\"><i class=\"far fa-clipboard\"></i></a> \n" +
             "            <a href=\"#\" class=\"w3-bar-item w3-button\"><i class=\"far fa-edit\"></i></a> \n" +
+            "            <a href=\"/QuestionWriter/LogOut\" class=\"w3-bar-item w3-button\"><i class=\"fas fa-door-open\"></i></a>"+
             "        </div>\n" +
             "\n" +
             "        <div style=\"margin-left:70px\">\n" +

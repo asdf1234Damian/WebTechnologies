@@ -9,7 +9,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.jdom.Document;
 import org.jdom.Element;
 import org.jdom.JDOMException;
 import org.jdom.input.SAXBuilder;
@@ -51,6 +50,7 @@ public class ProfNuevoCuestionario extends HttpServlet {
             //Se agrega al elemento raiz
             root.addContent(questionario);
             XMLOutputter xmlout = new XMLOutputter();
+            xmlout.setFormat(Format.getPrettyFormat());
             FileWriter writer = new FileWriter(DBfile);
             xmlout.output(root,writer);
             writer.flush();
