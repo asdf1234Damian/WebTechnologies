@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package adminpkg;
 
 import java.io.File;
@@ -18,19 +13,18 @@ import org.jdom.input.SAXBuilder;
 import org.jdom.output.Format;
 import org.jdom.output.XMLOutputter;
 
-/**
- *
- * @author damian
- */
-public class NuevoUsuario extends HttpServlet {
+public class GuardarCambiosUsuario extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+        //Se recuperan los parametros nuevos, aunque esten vacios
         String usrName = request.getParameter("inNombre");
         String pass = request.getParameter("inPassword");
         String grupo = request.getParameter("inGrupo");
         String email = request.getParameter("inCorreo");
         String uType = request.getParameter("inTipo");
+        //Se recupera el email origianal
+        String original = request.getSession().getAttribute("original").toString();
+        //Se crea el dom
         SAXBuilder SAXbuilder = new SAXBuilder();
         String DBPath=request.getSession().getServletContext().getRealPath("/resources/XML/userDB.xml");
         File DBfile = new File(DBPath);
@@ -38,33 +32,38 @@ public class NuevoUsuario extends HttpServlet {
         try {
             root = SAXbuilder.build(DBfile).getRootElement();
             Element e;
+            //Se busca el elemento con el email origianl 
             for(int i=0;i<root.getChildren().size(); i++){
                 e = (Element)root.getChildren().get(i);
-                if (e.getChild("email").getTextTrim().equals(email)){
-                    response.sendRedirect("admin/repetido.html");
-                    return;
+                if (e.getChild("email").getTextTrim().equals(original)){//Cuando coincide
+                    //Solo hace cambios cuando el nuevo no es vacio
+                    if(!usrName.equals("")){
+                        e.getChild("usrName").setText(usrName);
+                    }
+                    
+                    if(!pass.equals("")){
+                        e.getChild("pass").setText(pass);
+                    }
+                    
+                    if(!uType.equals("")){
+                        e.getChild("uType").setText(uType);
+                        if(!uType.equals("Student")){
+                            e.getChild("grupo").detach();
+                        }
+                    }
+                    if(!grupo.equals("")){
+                        if(e.getChild("grupo")!=null){
+                            e.getChild("grupo").setText(grupo);
+                        }else{
+                            e.addContent(new Element("grupo").setText(grupo));
+                        }
+                    }
+                    if(!email.equals("")){
+                        e.getChild("email").setText(email);
+                    }
                 }
             }
-            //Se crea el elemento con los datos proporcionados
-            Element user= new Element("user");
-            Element usrNameE= new Element("usrName");
-            usrNameE.setText(usrName);
-            Element emailE= new Element("email");
-            emailE.setText(email);
-            Element passE= new Element("pass");
-            passE.setText(pass);
-            Element uTypeE= new Element("uType");
-            uTypeE.setText(uType);
-            user.addContent(usrNameE);
-            user.addContent(emailE);
-            user.addContent(passE);
-            user.addContent(uTypeE);
-            if(uType.equals("Student")){
-                Element grupoE= new Element("grupo");
-                grupoE.setText(grupo);
-                user.addContent(grupoE);
-            }
-            root.addContent(user);
+            //escribe el dom con el nuevo elemento
             XMLOutputter xmlout = new XMLOutputter();
             xmlout.setFormat(Format.getPrettyFormat());
             FileWriter writer = new FileWriter(DBfile);

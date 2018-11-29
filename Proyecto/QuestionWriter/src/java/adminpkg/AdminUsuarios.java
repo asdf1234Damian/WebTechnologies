@@ -67,6 +67,7 @@ public class AdminUsuarios extends HttpServlet {
             "        <div class=\"w3-sidebar w3-bar-block w3-black w3-xxlarge center\" style=\"width:70px\">\n" +
             "            <a href=\"AdminUsuarios\" class=\"w3-bar-item w3-button\"><i class=\"fas fa-address-book\"></i></a> \n" +
             "            <a href=\"admin\\NuevoUsuario.html\" class=\"w3-bar-item w3-button\"><i class=\"fas fa-address-card\"></i></a> \n" +
+            "            <a href=\"/QuestionWriter/LogOut\" class=\"w3-bar-item w3-button\"><i class=\"fas fa-door-open\"></i></a>"+
             "        </div>\n" +
             "\n" +
             "        <div style=\"margin-left:70px\">\n" +
@@ -80,18 +81,22 @@ public class AdminUsuarios extends HttpServlet {
             "      <th>Usuarios</th>" +
             "      <th>Correo</th>" +
             "      <th>Tipo</th>" +
-            "      <th>Ver</th>" +
+            "      <th>Grupo</th>" +
             "      <th>Editar</th>" +
             "      <th>Borrar</th></tr>" );
             //Agrega a la tabla todos los cuestionarios con autor igual al email en sesion
             for(int i=0;i<usuarios.size(); i++){
                 e = (Element)usuarios.get(i);
-                if (!e.getChild("usrName").getTextTrim().equals(username)){
+                if (!e.getChild("email").getTextTrim().equals(mail)){
                     response.getWriter().println("<tr><th><a href=\"VerUsuario?"+e.getChild("usrName").getTextTrim()+"\">"+e.getChild("usrName").getTextTrim()+"</a></th>");
                     response.getWriter().println("<th>"+e.getChild("email").getTextTrim()+"</th>");
                     response.getWriter().println("<th>"+e.getChild("uType").getTextTrim()+"</th>");
-                    response.getWriter().println("<th><a style='text-decoration:none;' href='VerUsuario?titulo="+e.getChild("email").getTextTrim()+"' class=\"far fa-eye\"/></th>");
-                    response.getWriter().println("<th><a style='text-decoration:none;' href='EditarUsuario?titulo="+e.getChild("email").getTextTrim()+"' class=\"far fa-edit\"/></th>");
+                    if(e.getChild("grupo")==null){
+                        response.getWriter().println("<th>-NA-</th>");                        
+                    }else{
+                        response.getWriter().println("<th>"+e.getChild("grupo").getTextTrim()+"</th>");                        
+                    }
+                    response.getWriter().println("<th><a style='text-decoration:none;' href='EditarUsuario?correo="+e.getChild("email").getTextTrim()+"' class=\"far fa-edit\"/></th>");
                     response.getWriter().println("<th><a style='text-decoration:none;' onclick=\"confirmar('"+e.getChild("email").getTextTrim()+"')\" class=\"fas fa-trash-alt\"/></th></tr>");
                 }
             }
