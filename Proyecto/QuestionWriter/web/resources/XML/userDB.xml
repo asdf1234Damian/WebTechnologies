@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <dataBase xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="user.xsd">
   <user>
     <usrName>Damian</usrName>
@@ -6,27 +5,43 @@
     <pass>asdf1234</pass>
     <uType>Admin</uType>
   </user>
-
   <user>
     <usrName>Ruben</usrName>
     <email>ruben@gmail.com</email>
     <pass>asdf1234</pass>
     <uType>Admin</uType>
   </user>
-
   <user>
     <usrName>Raúl</usrName>
     <email>raul@gmail.com</email>
     <pass>asdf1234</pass>
-    <uType>Admin</uType>
-    <grupo>2CM8</grupo>
+    <uType>Professor</uType>
   </user>
-
   <user>
     <usrName>Vilchis</usrName>
     <email>mafervm@gmail.com</email>
     <pass>asdf1234</pass>
-    <uType>Professor</uType>
+    <uType>Admin</uType>
   </user>
-
+  <user>
+    <usrName>Samuel</usrName>
+    <email>sam@gmail.com</email>
+    <pass>sam</pass>
+    <uType>Student</uType>
+    <grupo>3CM2</grupo>
+  </user>
+  <user>
+    <usrName>Fer</usrName>
+    <email>fer@gmail.com</email>
+    <pass>asdfqwer</pass>
+    <uType>Student</uType>
+    <grupo>3CM2</grupo>
+  </user>
+  <user>
+    <usrName>Pedro</usrName>
+    <email>pedro@gmail.com</email>
+    <pass>karla</pass>
+    <uType>Student</uType>
+    <grupo>3CM7</grupo>
+  </user>
 </dataBase>
