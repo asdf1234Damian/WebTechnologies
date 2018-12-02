@@ -80,6 +80,8 @@ public class ProfEditarCuestionario extends HttpServlet {
             "    <tr>"+
             "      <th>Numero</th>" +
             "      <th>Contenido</th>" +
+            "      <th>Tipo</th>" +
+            "      <th>Ver</th>" +
             "      <th>Editar</th>" +
             "      <th>Borrar</th>"+
             "    </tr>" );
@@ -92,6 +94,8 @@ public class ProfEditarCuestionario extends HttpServlet {
                         response.getWriter().print("<tr>");
                         response.getWriter().print("<th>"+(j+1)+"</th>");
                         response.getWriter().print("<th>"+pregunta.getChildText("contenido")+"</th>");
+                        response.getWriter().print("<th>"+pregunta.getChildText("tipo").substring(0, 1).toUpperCase()+pregunta.getChildText("tipo").substring(1)+"</th>");
+                        response.getWriter().println("<th><a style='text-decoration:none;' href='ProfVerPregunta?posicion="+j+"' class=\"far fa-eye\"/></th>");
                         response.getWriter().println("<th><a style='text-decoration:none;' href='ProfEditarPregunta?posicion="+j+"' class=\"far fa-edit\"/></th>");
                         response.getWriter().println("<th><a style='text-decoration:none;' onclick=\"confirmar('"+j+"')\" class=\"fas fa-trash-alt\"/></th> </tr>");
                         response.getWriter().print("</tr>");
