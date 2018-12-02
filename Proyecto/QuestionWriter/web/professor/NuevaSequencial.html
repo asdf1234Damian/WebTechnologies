@@ -1,0 +1,115 @@
+<html>
+
+<head>
+  <title>Nuevo usuario</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <link rel="stylesheet" href="main.css">
+  <script src="main.js" charset="utf-8"></script>
+</head>
+
+<body>
+  <div class="w3-sidebar w3-bar-block w3-black w3-xxlarge center" style="width:70px">
+    <a href="/QuestionWriter/ProfCuestionarios" class="w3-bar-item w3-button"><i class="far fa-clipboard"></i></a>
+    <a href="NuevoCuestionario.html" class="w3-bar-item w3-button"><i class="fas fa-edit"></i></a>
+    <a href="/QuestionWriter/LogOut" class="w3-bar-item w3-button"><i class="fas fa-door-open"></i></a>
+  </div>
+  <div class="container">
+    <div class="card">
+      <form action="/QuestionWriter/ProfNuevaSequencial" method="get" name="contenidoPreg" onsubmit="return validateForm()">
+        <div id="tabs">
+          <ul>
+            <li><a href="#tabs-1">Inicio</a></li>
+            <li><a href="#tabs-2">Opciones</a></li>
+            <li><a href="#tabs-3">Assets</a></li>
+          </ul>
+          <div id="tabs-1">
+            <h1>Pregunta Parcial</h1>
+            <div class="holder">
+              <input type="text" name="contenido" placeholder="Contenido">
+              <br>
+              <h1>Respuestas</h1><br>
+              <table>
+                <tr>
+                  <th>Elemento</th>
+                  <th>Opcion</th>
+                  <th>Puntos</th>
+                </tr>
+                <tr>
+                  <td>
+                    <h2>A</h2>
+                  </td>
+                  <td><input type="text" name="textA" placeholder="Opcion A"></td>
+                  <td><input type="text" name="respA" placeholder="Puntos"></td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <h2>B</h2>
+                  </td>
+                  <td><input type="text" name="textB" placeholder="Opcion B"></td>
+                  <td><input type="text" name="respB" placeholder="Puntos "></td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <h2>C</h2>
+                  </td>
+                  <td><input type="text" name="textC" placeholder="Opcion C"></td>
+                  <td><input type="text" name="respC" placeholder="Puntos"></td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <h2>D</h2>
+                  </td>
+                  <td><input type="text" name="textD" placeholder="Opcion D"></td>
+                  <td><input type="text" name="respD" placeholder="Puntos"></td>
+                </tr>
+              </table>
+              <br>
+              <input type="submit" class="btn" value="Nueva pregunta" >
+            </div>
+
+          </div>
+          <div id="tabs-2">
+            <button type="button" class="btn" name="button" id="button1"> FeedBack?</button>
+            <div id="effect1">
+              <input type="text" name="sfeed" placeholder="Initial Feedback">
+              <input type="text" name="efeed" placeholder="Evaluate Feedback">
+              <input type="text" name="cfeed" placeholder="Correct Feedback">
+              <input type="text" name="ifeed" placeholder="Incorrect Feedback">
+              <input type="text" name="tfeed" placeholder="Tries Feedback">
+
+            </div>
+            <button type="button" class="btn" name="button" id="button2"> KnowledgeTrack</button>
+            <div id="effect2">
+              <input type="text" name="weight" placeholder="Weighting">
+            </div>
+            <fieldset>
+              <legend>Navigation </legend>
+              <label for="radio-1">Off</label>
+              <input type="radio" name="Navigation" id="radio-1" class="radio" value="Off">
+              <label for="radio-2">Next Button</label>
+              <input type="radio" name="Navigation" id="radio-2" class="radio" value="Next">
+              <label for="radio-3">Auto Goto Next Frame</label>
+              <input type="radio" name="Navigation" id="radio-3" class="radio" value="Goto">
+            </fieldset>
+          </div>
+          <div id="tabs-3">
+            <input type="file" name="file" >
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+
+</html>
