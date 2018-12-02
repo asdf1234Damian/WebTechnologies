@@ -44,6 +44,34 @@
         <servlet-name>GuardarCambiosUsuario</servlet-name>
         <servlet-class>adminpkg.GuardarCambiosUsuario</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ProfNuevaPregunta</servlet-name>
+        <servlet-class>professorpkg.ProfNuevaPregunta</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ProfNuevaSequencial</servlet-name>
+        <servlet-class>professorpkg.ProfNuevaSequencial</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ProfNuevaParcial</servlet-name>
+        <servlet-class>professorpkg.ProfNuevaParcial</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>NuevaPregunta</servlet-name>
+        <servlet-class>professorpkg.NuevaPregunta</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ProfEliminarPregunta</servlet-name>
+        <servlet-class>professorpkg.ProfEliminarPregunta</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ProfEditarPregunta</servlet-name>
+        <servlet-class>professorpkg.ProfEditarPregunta</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ProfVerPregunta</servlet-name>
+        <servlet-class>professorpkg.ProfVerPregunta</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -87,6 +115,34 @@
     <servlet-mapping>
         <servlet-name>GuardarCambiosUsuario</servlet-name>
         <url-pattern>/GuardarCambiosUsuario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProfNuevaPregunta</servlet-name>
+        <url-pattern>/ProfNuevaPregunta</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProfNuevaSequencial</servlet-name>
+        <url-pattern>/ProfNuevaSequencial</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProfNuevaParcial</servlet-name>
+        <url-pattern>/ProfNuevaParcial</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>NuevaPregunta</servlet-name>
+        <url-pattern>/NuevaPregunta</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProfEliminarPregunta</servlet-name>
+        <url-pattern>/ProfEliminarPregunta</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProfEditarPregunta</servlet-name>
+        <url-pattern>/ProfEditarPregunta</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProfVerPregunta</servlet-name>
+        <url-pattern>/ProfVerPregunta</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
