@@ -5,13 +5,35 @@
   <xs:element name="autor" type="xs:string"/>
   <xs:element name="fecha" type="xs:string"/>
   <xs:element name="contenido" type="xs:string"/>
+  <xs:element name="tipo" type="xs:string"/>
   <xs:element name="puntaje" type="xs:integer"/>
   <xs:element name="titulo" type="xs:string"/>
   <xs:element name="grupo" type="xs:string"/>
   <xs:element name="feedbackCorrecto" type="xs:string"/>
   <xs:element name="feedbackIncorrecto" type="xs:string"/>
+  <xs:element name="feedbackInicial" type="xs:string"/>
+  <xs:element name="feedbackEvaluate" type="xs:string"/>
+  <xs:element name="feedbackTries" type="xs:string"/>
+  <xs:element name="navigation" type="xs:string"/>
+  <xs:element name="weighting" type="xs:string"/>
 
   <!--Elements complejos-->
+
+  <xs:element name="opciones">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="feedbackCorrecto"/>
+        <xs:element ref="feedbackIncorrecto"/>
+        <xs:element ref="feedbackInicial"/>
+        <xs:element ref="feedbackEvaluate"/>
+        <xs:element ref="feedbackTries"/>
+        <xs:element ref="navigation"/>
+        <xs:element ref="weighting"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+
   <xs:element name="respuesta">
     <xs:complexType>
       <xs:sequence>
@@ -30,35 +52,24 @@
     </xs:complexType>
   </xs:element>
 
-  <xs:element name="sequencial">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element ref="contenido"/>
-        <xs:element ref="feedbackCorrecto"/>
-        <xs:element ref="feedbackIncorrecto"/>
-        <xs:element ref="respuestas"/>
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-
-
-  <xs:element name="parcial">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element ref="contenido"/>
-        <xs:element ref="feedbackCorrecto"/>
-        <xs:element ref="feedbackIncorrecto"/>
-        <xs:element ref="respuestas"/>
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
 
   <xs:element name="pregunta">
     <xs:complexType>
-      <xs:choice>
-        <xs:element ref="sequencial"/>
-        <xs:element ref="parcial"/>
-      </xs:choice>
+      <xs:sequence>
+        <xs:element ref="tipo"/>
+        <xs:element ref="contenido"/>
+        <xs:element ref="respuestas"/>
+        <xs:element ref="opciones"/>
+        <!-- <xs:element ref="recursos"/> -->
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="preguntas">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="pregunta" maxOccurs="unbounded" minOccurs="0"/>
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
 
@@ -68,7 +79,7 @@
         <xs:element ref="titulo" maxOccurs="1"/>
         <xs:element ref="autor"/>
         <xs:element ref="grupo"/>
-        <xs:element ref="pregunta" maxOccurs="unbounded" minOccurs="0"/>
+        <xs:element ref="preguntas"/>
       </xs:sequence>
     </xs:complexType>
   </xs:element>
