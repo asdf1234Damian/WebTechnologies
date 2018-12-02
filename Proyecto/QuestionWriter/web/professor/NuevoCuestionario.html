@@ -1,12 +1,20 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Nuevo Cuestionario</title>
-        <style media="screen">
-
-        body, html {
+<head>
+        <title>Nuevo usuario</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <style>
+            body, html {
             height: 100%;
-            background-image: linear-gradient(rgb(255, 255, 255), rgb(0, 0, 0));
+            background-image: linear-gradient(to left, rgb(255, 255, 255), rgb(0, 0, 0));
         }
 
         h3{
@@ -28,6 +36,7 @@
         }
 
         .card {
+            text-align: center;
             background-color: #F7F7F7;
             padding: 20px 25px 30px;
             margin: 0 auto 25px;
@@ -40,13 +49,18 @@
             box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
         }
 
-        #inputNombre{
+        #inputNombre,
+        #inPassword,
+        #inGrupo,
+        #confirmPassword,
+        #inCorreo{
             height: 44px;
             font-size: 16px;
             text-align: center;
         }
 
         .form-signin input[type=text],
+        .form-signin input[type=password],
         .form-signin button {
             width: 100%;
             display: block;
@@ -86,34 +100,63 @@
         .btn.btn-signin:focus {
             background-color: rgb(12, 97, 33);
         }
-        </style>
-        <script>
+        fieldset {
+            border: 0;
+            margin-bottom: 10px;
+        } 
+        .overflow {
+          height: 600px;
+        }
+    </style>
+    <script>
         function validateForm() {
             var x = document.forms["formNombre"]["inNombre"].value;
             var y = document.forms["formNombre"]["inGrupo"].value;
-            if (x == "" || y == "" ) {
-                alert("El cuestionario debe tener nombre y grupo");
+            if (x == "") {
+                alert("El cuestionario necesita un nombre");
+                return false;
+            }
+            
+            if (y == "") {
+                alert("El cuestionario necesita un grupo");
                 return false;
             }
         }
+        
+        $( function() {//Si el usuario es student, muestra el campo grupo
+            var grupo = $( "#inGrupo" );
+            $( "#inTipo" ).selectmenu();
+            $( "#inTipo" ).selectmenu({
+                change: function( event, data ) {
+                    if(data.item.value !=="Student"){
+                        grupo.css( "visibility", "hidden");
+                        grupo.css( "height", "0");
+                        grupo.css( "margin-bottom", "0px");
+                    }else{
+                        grupo.css( "visibility", "visible");
+                        grupo.css( "height", "44px");
+                        grupo.css( "margin-bottom", "10px");
+                    }
+                }
+            });
+        } );
         </script>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     </head>
     <body>
+        <div class="w3-sidebar w3-bar-block w3-black w3-xxlarge center" style="width:70px">
+            <a href="/QuestionWriter/ProfCuestionarios" class="w3-bar-item w3-button"><i class="far fa-clipboard"></i></a> 
+            <a href="NuevoCuestionario.html" class="w3-bar-item w3-button"><i class="fas fa-edit"></i></a> 
+            <a href="/QuestionWriter/LogOut" class="w3-bar-item w3-button"><i class="fas fa-door-open"></i></a> 
+        </div>
        <div class="container">
         <div class="card card-container">
             <form name="formNombre" class="form-signin" onsubmit="return validateForm()" method="get" action="/QuestionWriter/ProfNuevoCuestionario">
                 <h3>Introduzca el nombre del nuevo cuestionario</h3>
                 <input type="text" id="inputNombre" name="inNombre" placeholder="Nombre del Cuestionario" autofocus>
-
                 <input type="text" id="inputNombre" name="inGrupo" placeholder="Grupo" autofocus>
                 <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Crear Cuestionario</button>
             </form>
         </div>
     </div>
-    </body>
+    </body> 
 </html>
