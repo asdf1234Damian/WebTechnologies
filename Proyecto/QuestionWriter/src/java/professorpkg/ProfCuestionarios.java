@@ -65,8 +65,8 @@ public class ProfCuestionarios extends HttpServlet {
             "</script>"+
             "    <body>\n" +
             "        <div class=\"w3-sidebar w3-bar-block w3-black w3-xxlarge center\" style=\"width:70px\">\n" +
-            "            <a href=\"professor/NuevoCuestionario.html\" class=\"w3-bar-item w3-button\"><i class=\"far fa-clipboard\"></i></a> \n" +
-            "            <a href=\"#\" class=\"w3-bar-item w3-button\"><i class=\"far fa-edit\"></i></a> \n" +
+            "            <a href=\"/QuestionWriter/ProfCuestionarios\" class=\"w3-bar-item w3-button\"><i class=\"far fa-clipboard\"></i></a> \n" +
+            "            <a href=\"professor/NuevoCuestionario.html\" class=\"w3-bar-item w3-button\"><i class=\"far fa-edit\"></i></a> \n" +
             "            <a href=\"/QuestionWriter/LogOut\" class=\"w3-bar-item w3-button\"><i class=\"fas fa-door-open\"></i></a>"+
             "        </div>\n" +
             "\n" +
@@ -80,7 +80,7 @@ public class ProfCuestionarios extends HttpServlet {
             "    <tr>" +
             "      <th>Nombre del Cuestionario</th>" +
             "      <th>Grupo</th>" +
-            "      <th>Ver</th>" +
+            //"      <th>Ver</th>" +
             "      <th>Editar</th>" +
             "      <th>Borrar</th>"+
             "    </tr>" );
@@ -88,9 +88,9 @@ public class ProfCuestionarios extends HttpServlet {
             for(int i=0;i<questionarios.size(); i++){
                 e = (Element)questionarios.get(i);
                 if (e.getChild("autor").getTextTrim().equals(mail)){
-                    response.getWriter().println("<tr><th><a href=\"VerCuestionario?"+e.getChild("titulo").getTextTrim()+"\">"+e.getChild("titulo").getTextTrim()+"</a></th>");
+                    response.getWriter().println("<tr><th><a href=\"ProfEditarCuestionario?titulo="+e.getChild("titulo").getTextTrim()+"\">"+e.getChild("titulo").getTextTrim()+"</a></th>");
                     response.getWriter().println("<th>"+e.getChild("grupo").getTextTrim()+"</th>");
-                    response.getWriter().println("<th><a style='text-decoration:none;' href='VerCuestionario?titulo="+e.getChild("titulo").getTextTrim()+"' class=\"far fa-eye\"/></th>");
+                    //response.getWriter().println("<th><a style='text-decoration:none;' href='VerCuestionario?titulo="+e.getChild("titulo").getTextTrim()+"' class=\"far fa-eye\"/></th>");
                     response.getWriter().println("<th><a style='text-decoration:none;' href='ProfEditarCuestionario?titulo="+e.getChild("titulo").getTextTrim()+"' class=\"far fa-edit\"/></th>");
                     response.getWriter().println("<th><a style='text-decoration:none;' onclick=\"confirmar('"+e.getChild("titulo").getTextTrim()+"')\" class=\"fas fa-trash-alt\"/></th> </tr>");
                 }

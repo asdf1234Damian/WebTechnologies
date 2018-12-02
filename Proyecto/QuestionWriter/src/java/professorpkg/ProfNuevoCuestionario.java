@@ -34,7 +34,8 @@ public class ProfNuevoCuestionario extends HttpServlet {
                 e = (Element)root.getChildren().get(i);
                 if (e.getChild("autor").getTextTrim().equals(mail) && e.getChild("titulo").getTextTrim().equals(titulo)  ){
                     response.sendRedirect("professor/repetido.html");
-                }
+                    return;
+                }   
             }
             //Se crea el elemento con los datos proporcionados
             Element questionario= new Element("questionario");
@@ -44,9 +45,11 @@ public class ProfNuevoCuestionario extends HttpServlet {
             autorE.setText(mail);
             Element grupoE= new Element("grupo");
             grupoE.setText(grupo);
+            Element pregE= new Element("preguntas");
             questionario.addContent(tituloE);
             questionario.addContent(autorE);
             questionario.addContent(grupoE);
+            questionario.addContent(pregE);
             //Se agrega al elemento raiz
             root.addContent(questionario);
             XMLOutputter xmlout = new XMLOutputter();
