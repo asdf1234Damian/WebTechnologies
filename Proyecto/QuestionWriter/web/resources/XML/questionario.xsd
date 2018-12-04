@@ -16,20 +16,21 @@
   <xs:element name="feedbackTries" type="xs:string"/>
   <xs:element name="navigation" type="xs:string"/>
   <xs:element name="weighting" type="xs:string"/>
+  <xs:element name="correspondencia" type="xs:string"/>
 
   <!--Elements complejos-->
 
   <xs:element name="opciones">
     <xs:complexType>
-      <xs:sequence>
-        <xs:element ref="feedbackCorrecto"/>
-        <xs:element ref="feedbackIncorrecto"/>
-        <xs:element ref="feedbackInicial"/>
-        <xs:element ref="feedbackEvaluate"/>
-        <xs:element ref="feedbackTries"/>
-        <xs:element ref="navigation"/>
-        <xs:element ref="weighting"/>
-      </xs:sequence>
+      <xs:all>
+        <xs:element ref="feedbackCorrecto" minOccurs="0"/>
+        <xs:element ref="feedbackIncorrecto" minOccurs="0"/>
+        <xs:element ref="feedbackInicial" minOccurs="0"/>
+        <xs:element ref="feedbackEvaluate" minOccurs="0"/>
+        <xs:element ref="feedbackTries" minOccurs="0"/>
+        <xs:element ref="navigation" minOccurs="0"/>
+        <xs:element ref="weighting" minOccurs="0"/>
+      </xs:all>
     </xs:complexType>
   </xs:element>
 
@@ -38,7 +39,10 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element ref="contenido"/>
-        <xs:element ref="puntaje" minOccurs="0"/>
+        <xs:choice>
+          <xs:element ref="puntaje"/>
+          <xs:element ref="correspondencia"/>
+        </xs:choice>
       </xs:sequence>
     </xs:complexType>
   </xs:element>
