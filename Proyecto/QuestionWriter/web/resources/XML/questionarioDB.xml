@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <dataBase xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="questionario.xsd">
   <questionario>
     <titulo>Questionario 1</titulo>
@@ -7,73 +6,91 @@
     <preguntas>
       <pregunta>
         <tipo>sequencial</tipo>
-        <contenido>Pregunta uno?</contenido>
+        <contenido>Relaciona las siguientes analogias pls</contenido>
         <respuestas>
           <respuesta>
-            <contenido>
-              Respuesta A</contenido>
+            <contenido>Circulo O</contenido>
+            <correspondencia>Cuadro</correspondencia>
           </respuesta>
           <respuesta>
-            <contenido>
-              Respuesta B</contenido>
+            <contenido>Perro</contenido>
+            <correspondencia>Gato</correspondencia>
+          </respuesta>
+          <respuesta>
+            <contenido>Ave</contenido>
+            <correspondencia>Pez</correspondencia>
+          </respuesta>
+          <respuesta>
+            <contenido>Luz</contenido>
+            <correspondencia>Oscuridad</correspondencia>
           </respuesta>
         </respuestas>
         <opciones>
-          <feedbackCorrecto>
-            c:
-          </feedbackCorrecto>
-          <feedbackIncorrecto>
-            :c
-          </feedbackIncorrecto>
-          <feedbackInicial>Selecciona alguna respuesta</feedbackInicial>
-          <feedbackEvaluate>
-            Vuelve a intentar
-          </feedbackEvaluate>
-          <feedbackTries></feedbackTries>
           <navigation>Off</navigation>
-          <weighting>1</weighting>
+          <feedbackInicial>Inicial</feedbackInicial>
+          <feedbackEvaluate>Evaluate</feedbackEvaluate>
+          <feedbackCorrecto>Correct</feedbackCorrecto>
+          <feedbackIncorrecto>Incorrect</feedbackIncorrecto>
+          <feedbackTries>Tries</feedbackTries>
+          <weighting>5</weighting>
         </opciones>
       </pregunta>
       <pregunta>
         <tipo>parcial</tipo>
-        <contenido>Pregunta dos?</contenido>
+        <contenido>Cuanto vale &amp;#960;?</contenido>
         <respuestas>
           <respuesta>
-            <contenido>Respuesta A</contenido>
-            <puntaje>
-              5
-            </puntaje>
+            <contenido>3</contenido>
+            <puntaje>0</puntaje>
           </respuesta>
           <respuesta>
-            <contenido>Respuesta b</contenido>
-            <puntaje>
-              1
-            </puntaje>
+            <contenido>2</contenido>
+            <puntaje>1</puntaje>
+          </respuesta>
+          <respuesta>
+            <contenido>4</contenido>
+            <puntaje>2</puntaje>
+          </respuesta>
+          <respuesta>
+            <contenido>3.14159...</contenido>
+            <puntaje>5</puntaje>
           </respuesta>
         </respuestas>
         <opciones>
-          <feedbackCorrecto>
-            c:
-          </feedbackCorrecto>
-          <feedbackIncorrecto>
-            :c
-          </feedbackIncorrecto>
-          <feedbackInicial>Selecciona alguna respuesta</feedbackInicial>
-          <feedbackEvaluate>
-            Vuelve a intentar
-          </feedbackEvaluate>
-          <feedbackTries></feedbackTries>
           <navigation>Off</navigation>
-          <weighting>1</weighting>
         </opciones>
+      </pregunta>
+      <pregunta>
+        <tipo>parcial</tipo>
+        <contenido>Don't</contenido>
+        <respuestas>
+          <respuesta>
+            <contenido>Wanna know</contenido>
+            <puntaje>1</puntaje>
+          </respuesta>
+          <respuesta>
+            <contenido>Let me down</contenido>
+            <puntaje>2</puntaje>
+          </respuesta>
+          <respuesta>
+            <contenido>Cry</contenido>
+            <puntaje>5</puntaje>
+          </respuesta>
+          <respuesta>
+            <contenido>Stop me now</contenido>
+            <puntaje>7</puntaje>
+          </respuesta>
+        </respuestas>
+        <opciones>
+          <navigation>Off</navigation>
+        <feedbackInicial>I'm flying around in ecstasy</feedbackInicial></opciones>
       </pregunta>
     </preguntas>
   </questionario>
-
   <questionario>
     <titulo>Questionario 2</titulo>
     <autor>asdf1234damian@gmail.com</autor>
     <grupo>2CM9</grupo>
-    <preguntas></preguntas>
+    <preguntas />
   </questionario>
 </dataBase>
