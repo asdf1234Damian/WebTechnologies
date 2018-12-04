@@ -72,6 +72,14 @@
         <servlet-name>ProfVerPregunta</servlet-name>
         <servlet-class>professorpkg.ProfVerPregunta</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>GuardarCambios</servlet-name>
+        <servlet-class>professorpkg.GuardarCambiosPregunta</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GuardarCambiosPregunta</servlet-name>
+        <servlet-class>professorpkg.GuardarCambiosPregunta</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -143,6 +151,10 @@
     <servlet-mapping>
         <servlet-name>ProfVerPregunta</servlet-name>
         <url-pattern>/ProfVerPregunta</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GuardarCambiosPregunta</servlet-name>
+        <url-pattern>/GuardarCambiosPregunta</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

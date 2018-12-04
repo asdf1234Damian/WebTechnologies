@@ -46,7 +46,7 @@ public class ProfNuevaParcial extends HttpServlet {
         if (!request.getParameter("textB").equals("")) {
             Element respuestaB = new Element("respuesta");
             Element contenidoB = new Element("contenido");
-            contenidoA.setText(request.getParameter("textB"));
+            contenidoB.setText(request.getParameter("textB"));
             respuestaB.addContent(contenidoB);
             if (!request.getParameter("respB").equals("")) {
                 Element puntajeB = new Element("puntaje");

@@ -73,11 +73,12 @@ public class ProfVerPregunta extends HttpServlet {
             response.getWriter().print("<h3>");
             for(int i=0;i<pregunta.getChild("respuestas").getChildren().size();i++){
                 Element respuesta = (Element) pregunta.getChild("respuestas").getChildren().get(i);
-                response.getWriter().print("<h3> Opcion "+ ((char)(65+i)) +":");
                 response.getWriter().print("<u>"+respuesta.getChild("contenido").getText().toString()+"</u>    ");
                 if(respuesta.getChild("puntaje")!=null){
-                    response.getWriter().print(respuesta.getChild("puntaje").getText().toString()+"<h3>");    
-                }    
+                    response.getWriter().print("  "+respuesta.getChild("puntaje").getText().toString()+"<h3>");    
+                }else{
+                    response.getWriter().print("->"+respuesta.getChild("correspondencia").getText().toString()+"<h3>");    
+            } 
             }
             
             for(int i=0;i<pregunta.getChild("opciones").getChildren().size();i++){

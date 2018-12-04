@@ -8,7 +8,6 @@ package professorpkg;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -38,20 +37,20 @@ public class ProfNuevaSequencial extends HttpServlet {
         Element contenidoA = new Element("contenido");
         contenidoA.setText(request.getParameter("textA"));
         respuestaA.addContent(contenidoA);
-        Element puntajeA = new Element("puntaje");
-        puntajeA.setText(request.getParameter("respA"));
-        respuestaA.addContent(puntajeA);
+        Element correspondenciaA = new Element("correspondencia");
+        correspondenciaA.setText(request.getParameter("respA"));
+        respuestaA.addContent(correspondenciaA);
         respuestas.addContent(respuestaA);
 
         if (!request.getParameter("textB").equals("")) {
             Element respuestaB = new Element("respuesta");
             Element contenidoB = new Element("contenido");
-            contenidoA.setText(request.getParameter("textB"));
+            contenidoB.setText(request.getParameter("textB"));
             respuestaB.addContent(contenidoB);
             if (!request.getParameter("respB").equals("")) {
-                Element puntajeB = new Element("puntaje");
-                puntajeB.setText(request.getParameter("respB"));
-                respuestaB.addContent(puntajeB);
+                Element correspondenciaB = new Element("correspondencia");
+                correspondenciaB.setText(request.getParameter("respB"));
+                respuestaB.addContent(correspondenciaB);
             }
             respuestas.addContent(respuestaB);
         }
@@ -62,9 +61,9 @@ public class ProfNuevaSequencial extends HttpServlet {
             contenidoC.setText(request.getParameter("textC"));
             respuestaC.addContent(contenidoC);
             if (!request.getParameter("respC").equals("")) {
-                Element puntajeC = new Element("puntaje");
-                puntajeC.setText(request.getParameter("respC"));
-                respuestaC.addContent(puntajeC);
+                Element correspondenciaC = new Element("correspondencia");
+                correspondenciaC.setText(request.getParameter("respC"));
+                respuestaC.addContent(correspondenciaC);
             }
             respuestas.addContent(respuestaC);
         }
@@ -75,9 +74,9 @@ public class ProfNuevaSequencial extends HttpServlet {
             contenidoD.setText(request.getParameter("textD"));
             respuestaD.addContent(contenidoD);
             if (!request.getParameter("respD").equals("")) {
-                Element puntajeD = new Element("puntaje");
-                puntajeD.setText(request.getParameter("respD"));
-                respuestaD.addContent(puntajeD);
+                Element correspondenciaD = new Element("correspondencia");
+                correspondenciaD.setText(request.getParameter("respD"));
+                respuestaD.addContent(correspondenciaD);
             }
             respuestas.addContent(respuestaD);
         }
@@ -141,8 +140,8 @@ public class ProfNuevaSequencial extends HttpServlet {
             root = SAXbuilder.build(DBfile).getRootElement();
             Element cuestionario = null;
             for (int i = 0; i < root.getChildren().size(); i++) {
-                Element e=(Element) root.getChildren().get(i);
-                if (e.getChild("autor").getTextTrim().equals(autor) && e.getChild("titulo").getTextTrim().equals(titulo)){
+                Element e = (Element) root.getChildren().get(i);
+                if (e.getChild("autor").getTextTrim().equals(autor) && e.getChild("titulo").getTextTrim().equals(titulo)) {
                     cuestionario = (Element) root.getChildren().get(i);
                 }
             }
@@ -155,7 +154,7 @@ public class ProfNuevaSequencial extends HttpServlet {
                 xmlout.output(root, writer);
                 writer.flush();
                 writer.close();
-                response.sendRedirect("/QuestionWriter/ProfEditarCuestionario?titulo="+titulo);
+                response.sendRedirect("/QuestionWriter/ProfEditarCuestionario?titulo=" + titulo);
             } else {
                 response.getWriter().print("No hay preguntas en este cuestionario >:v");
             }
