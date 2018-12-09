@@ -2,7 +2,6 @@ package professorpkg;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -14,12 +13,6 @@ import org.jdom.JDOMException;
 import org.jdom.input.SAXBuilder;
 
 public class ProfVerPregunta extends HttpServlet {
-    
-    public String fUpper(String in){
-        String s;
-        s=in.substring(0,1).toUpperCase()+in.substring(1);
-        return s;
-    }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -27,26 +20,26 @@ public class ProfVerPregunta extends HttpServlet {
         //Recupera los datos de la sesion 
         String autor = request.getSession().getAttribute("autor").toString();
         String titulo = request.getSession().getAttribute("titulo").toString();
-        int index = Integer.parseInt(request.getParameter("posicion"));
+        String id = request.getParameter("id");
         //Recupera la base de datos
-        String DBPath = request.getSession().getServletContext().getRealPath("/resources/XML/questionarioDB.xml");
+        String DBPath = request.getSession().getServletContext().getRealPath("/resources/XML/preguntaDB.xml");
         File DBfile = new File(DBPath);
         Element root;
         SAXBuilder SAXbuilder = new SAXBuilder();
         try {
             root = SAXbuilder.build(DBfile).getRootElement();
-            Element cuestionario = null;
-            for (int i = 0; i < root.getChildren().size(); i++) {
-                Element e = (Element) root.getChildren().get(i);
-                if (e.getChild("autor").getTextTrim().equals(autor) && e.getChild("titulo").getTextTrim().equals(titulo)) {
-                    cuestionario = (Element) root.getChildren().get(i);
+            Element preguntas= root.getChild("preguntas");
+            Element pregunta=null;
+            for (int i = 0; i < preguntas.getChildren().size(); i++) {
+                Element e = (Element) preguntas.getChildren().get(i);
+                if (e.getChild("id").getTextTrim().equals(id)) {
+                    pregunta = (Element) preguntas.getChildren().get(i);
                 }
             }
-            Element pregunta= (Element) cuestionario.getChild("preguntas").getChildren().get(index);
             response.getWriter().print("<html>\n" +
 "\n" +
 "<head>\n" +
-"  <title>Nuevo usuario</title>\n" +
+"  <title>Ver pregunta</title>\n" +
 "  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n" +
 "  <link rel=\"stylesheet\" href=\"//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css\">\n" +
 "  <link rel=\"stylesheet\" href=\"https://www.w3schools.com/w3css/4/w3.css\">\n" +
@@ -69,7 +62,7 @@ public class ProfVerPregunta extends HttpServlet {
 "  <div class=\"container\">\n" +
 "    <div class=\"card\">\n" +
 "      <h2>Contenido:"+pregunta.getChild("contenido").getText()+"</h2>\n"+
-"      <h3>Tipo:"+fUpper(pregunta.getChild("tipo").getText())+"</h3>\n");
+"      <h3>Tipo:"+Utils.fUpper(pregunta.getChild("tipo").getText())+"</h3>\n");
             response.getWriter().print("<h3>");
             for(int i=0;i<pregunta.getChild("respuestas").getChildren().size();i++){
                 Element respuesta = (Element) pregunta.getChild("respuestas").getChildren().get(i);
@@ -83,10 +76,10 @@ public class ProfVerPregunta extends HttpServlet {
             
             for(int i=0;i<pregunta.getChild("opciones").getChildren().size();i++){
                 Element opcion = (Element) pregunta.getChild("opciones").getChildren().get(i);                
-                response.getWriter().print("<h3>"+fUpper(opcion.getName()));    
+                response.getWriter().print("<h3>"+Utils.fUpper(opcion.getName()));    
                 response.getWriter().print(": <u>"+opcion.getText().toString()+"</u><br/>");    
             }
-            response.getWriter().print("</h3>");
+            response.getWriter().print("</h3>");    
 response.getWriter().print("<a class=\"btn\" href=\"ProfEditarCuestionario?titulo="+titulo+"\">Regresar</a>"+
 "    </div>\n" +
 "</body>\n" +

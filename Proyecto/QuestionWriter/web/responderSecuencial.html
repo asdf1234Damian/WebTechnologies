@@ -1,0 +1,99 @@
+<head>
+  <title>Nuevo usuario</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <link rel="stylesheet" href="css/responder.css">
+  <script src="responder.js" charset="utf-8"></script>
+  <script>
+    function validateForm() {
+      var x = document.forms["formNombre"]["inNombre"].value;
+      var y = document.forms["formNombre"]["inGrupo"].value;
+      if (x == "") {
+        alert("El cuestionario necesita un nombre");
+        return false;
+      }
+
+      if (y == "") {
+        alert("El cuestionario necesita un grupo");
+        return false;
+      }
+    }
+
+    $(function() { //Si el usuario es student, muestra el campo grupo
+      var grupo = $("#inGrupo");
+      $("#inTipo").selectmenu();
+      $("#inTipo").selectmenu({
+        change: function(event, data) {
+          if (data.item.value !== "Student") {
+            grupo.css("visibility", "hidden");
+            grupo.css("height", "0");
+            grupo.css("margin-bottom", "0px");
+          } else {
+            grupo.css("visibility", "visible");
+            grupo.css("height", "44px");
+            grupo.css("margin-bottom", "10px");
+          }
+        }
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <div class="w3-sidebar w3-bar-block w3-black w3-xxlarge center" style="width:70px">
+    <a href="/QuestionWriter/ProfCuestionarios" class="w3-bar-item w3-button"><i class="far fa-clipboard"></i></a>
+    <a href="NuevoCuestionario.html" class="w3-bar-item w3-button"><i class="fas fa-edit"></i></a>
+    <a href="/QuestionWriter/LogOut" class="w3-bar-item w3-button"><i class="fas fa-door-open"></i></a>
+  </div>
+  <div class="container">
+    <div class="card card-container">
+      <h1>Examen</h1>
+      <div class="Evaluacion">
+        <iframe height="100%" width="100%" src="DesplegarPreg?instruccion=iniciar" name="compEvaluacion"></iframe>
+      </div>
+
+      <div class="control">
+        <button type="button" class="big">
+          <a target="compEvaluacion" href="index.html" title=" Evaluar">
+            <i class='far fa-edit'></i>
+          </a>
+        </button>
+
+        <button name="Nav" value="start" class=" navB">
+          <a target="compEvaluacion" href="DesplegarPreg?instruccion=iniciar" title=" Inicio">
+            <i class='fas fa-angle-double-left	'></i>
+          </a>
+        </button>
+
+        <button name="Nav" value="start" class=" navB">
+          <a target="compEvaluacion" href="DesplegarPreg?instruccion=anterior" title=" Anterior">
+            <i class='fas fa-angle-left	'></i>
+          </a>
+        </button>
+
+        <button name="Nav" value="start" class=" navB">
+          <a target="compEvaluacion" href="DesplegarPreg?instruccion=siguiente" title="Siguiente">
+            <i class='fas fa-angle-right	'></i>
+          </a>
+        </button>
+
+        <button name="Nav" value="start" class=" navB">
+          <a target="compEvaluacion" href="DesplegarPreg?instruccion=fin" title=" Fin">
+            <i class='fas fa-angle-double-right'></i>
+          </a>
+        </button>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

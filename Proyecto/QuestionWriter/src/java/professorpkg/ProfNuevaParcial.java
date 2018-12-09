@@ -26,14 +26,11 @@ public class ProfNuevaParcial extends HttpServlet {
         SAXBuilder SAXbuilder = new SAXBuilder();
         //Recupera los datos de la sesion 
         String autor = request.getSession().getAttribute("autor").toString();
-        String titulo = request.getSession().getAttribute("titulo").toString();
+        String titulo= request.getSession().getAttribute("titulo").toString();
         //Recupera los datos del form 
-
         Element contenido = new Element("contenido");
         contenido.setText(request.getParameter("contenido"));
-
         Element respuestas = new Element("respuestas");
-
         Element respuestaA = new Element("respuesta");
         Element contenidoA = new Element("contenido");
         contenidoA.setText(request.getParameter("textA"));
@@ -113,52 +110,37 @@ public class ProfNuevaParcial extends HttpServlet {
             opciones.addContent(tfeed);
         }
 
-        if (!request.getParameter("Navigation").equals("")) {
-            Element nav = new Element("navigation");
-            nav.setText(request.getParameter("Navigation"));
-            opciones.addContent(nav);
-        }
-
-        if (!request.getParameter("weight").equals("")) {
-            Element weight = new Element("weighting");
-            weight.setText(request.getParameter("weight"));
-            opciones.addContent(weight);
-        }
-
-        //Crea la pregunta 
-        Element pregunta = new Element("pregunta");
-        Element tipo = new Element("tipo");
-        tipo.setText("parcial");
-        pregunta.addContent(tipo);
-        pregunta.addContent(contenido);
-        pregunta.addContent(respuestas);
-        pregunta.addContent(opciones);
         //Recupera la base de datos
-        String DBPath = request.getSession().getServletContext().getRealPath("/resources/XML/questionarioDB.xml");
+        String DBPath = request.getSession().getServletContext().getRealPath("/resources/XML/preguntaDB.xml");
         File DBfile = new File(DBPath);
-        Element root;
+        Element root, preguntas;
         try {
             root = SAXbuilder.build(DBfile).getRootElement();
-            Element cuestionario = null;
-            for (int i = 0; i < root.getChildren().size(); i++) {
-                Element e=(Element) root.getChildren().get(i);
-                if (e.getChild("autor").getTextTrim().equals(autor) && e.getChild("titulo").getTextTrim().equals(titulo)){
-                    cuestionario = (Element) root.getChildren().get(i);
-                }
-            }
-            if (cuestionario.getChild("preguntas") != null) {
-                //Se agrega al elemento raiz
-                cuestionario.getChild("preguntas").addContent(pregunta);
-                XMLOutputter xmlout = new XMLOutputter();
-                xmlout.setFormat(Format.getPrettyFormat());
-                FileWriter writer = new FileWriter(DBfile);
-                xmlout.output(root, writer);
-                writer.flush();
-                writer.close();
-                response.sendRedirect("/QuestionWriter/ProfEditarCuestionario?titulo="+titulo);
-            } else {
-                response.getWriter().print("No hay preguntas en este cuestionario >:v");
-            }
+            preguntas = root.getChild("preguntas");
+            int current = Integer.parseInt(root.getChildText("current"));
+            current++;
+            root.getChild("current").setText(String.valueOf(current));
+            Element id = new Element("id").setText(String.valueOf(current));
+            Element pregunta = new Element("pregunta");
+            Element tipo = new Element("tipo");
+            tipo.setText("parcial");
+            Element aut = new Element("autor").setText(autor);
+            pregunta.addContent(id);
+            pregunta.addContent(aut);
+            pregunta.addContent(tipo);
+            pregunta.addContent(contenido);
+            pregunta.addContent(respuestas);
+            pregunta.addContent(opciones);
+
+            //Se agrega al elemento raiz
+            root.getChild("preguntas").addContent(pregunta);
+            XMLOutputter xmlout = new XMLOutputter();
+            xmlout.setFormat(Format.getPrettyFormat());
+            FileWriter writer = new FileWriter(DBfile);
+            xmlout.output(root, writer);
+            writer.flush();
+            writer.close();
+            response.sendRedirect("/QuestionWriter/ProfEditarCuestionario?titulo=" + titulo);
 //        Element Pregunta
         } catch (JDOMException e) {
             response.getWriter().print("Error JDOM");

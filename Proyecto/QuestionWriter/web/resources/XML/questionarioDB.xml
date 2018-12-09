@@ -4,93 +4,16 @@
     <autor>asdf1234damian@gmail.com</autor>
     <grupo>2CM8</grupo>
     <preguntas>
-      <pregunta>
-        <tipo>sequencial</tipo>
-        <contenido>Relaciona las siguientes analogias pls</contenido>
-        <respuestas>
-          <respuesta>
-            <contenido>Circulo O</contenido>
-            <correspondencia>Cuadro</correspondencia>
-          </respuesta>
-          <respuesta>
-            <contenido>Perro</contenido>
-            <correspondencia>Gato</correspondencia>
-          </respuesta>
-          <respuesta>
-            <contenido>Ave</contenido>
-            <correspondencia>Pez</correspondencia>
-          </respuesta>
-          <respuesta>
-            <contenido>Luz</contenido>
-            <correspondencia>Oscuridad</correspondencia>
-          </respuesta>
-        </respuestas>
-        <opciones>
-          <navigation>Off</navigation>
-          <feedbackInicial>Inicial</feedbackInicial>
-          <feedbackEvaluate>Evaluate</feedbackEvaluate>
-          <feedbackCorrecto>Correct</feedbackCorrecto>
-          <feedbackIncorrecto>Incorrect</feedbackIncorrecto>
-          <feedbackTries>Tries</feedbackTries>
-          <weighting>5</weighting>
-        </opciones>
-      </pregunta>
-      <pregunta>
-        <tipo>parcial</tipo>
-        <contenido>Cuanto vale &amp;#960;?</contenido>
-        <respuestas>
-          <respuesta>
-            <contenido>3</contenido>
-            <puntaje>0</puntaje>
-          </respuesta>
-          <respuesta>
-            <contenido>2</contenido>
-            <puntaje>1</puntaje>
-          </respuesta>
-          <respuesta>
-            <contenido>4</contenido>
-            <puntaje>2</puntaje>
-          </respuesta>
-          <respuesta>
-            <contenido>3.14159...</contenido>
-            <puntaje>5</puntaje>
-          </respuesta>
-        </respuestas>
-        <opciones>
-          <navigation>Off</navigation>
-        </opciones>
-      </pregunta>
-      <pregunta>
-        <tipo>parcial</tipo>
-        <contenido>Don't</contenido>
-        <respuestas>
-          <respuesta>
-            <contenido>Wanna know</contenido>
-            <puntaje>1</puntaje>
-          </respuesta>
-          <respuesta>
-            <contenido>Let me down</contenido>
-            <puntaje>2</puntaje>
-          </respuesta>
-          <respuesta>
-            <contenido>Cry</contenido>
-            <puntaje>5</puntaje>
-          </respuesta>
-          <respuesta>
-            <contenido>Stop me now</contenido>
-            <puntaje>7</puntaje>
-          </respuesta>
-        </respuestas>
-        <opciones>
-          <navigation>Off</navigation>
-        <feedbackInicial>I'm flying around in ecstasy</feedbackInicial></opciones>
-      </pregunta>
+        <id>1</id>
     </preguntas>
   </questionario>
   <questionario>
     <titulo>Questionario 2</titulo>
     <autor>asdf1234damian@gmail.com</autor>
     <grupo>2CM9</grupo>
-    <preguntas />
+    <preguntas> 
+        <id>2</id>
+        <id>3</id>
+    </preguntas>
   </questionario>
 </dataBase>

@@ -3,8 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/damian/Documents/WebTechnologies/Proyecto/QuestionWriter/web/professor/NuevaSequencial.html</file>
-            <file>file:/home/damian/Documents/WebTechnologies/Proyecto/QuestionWriter/src/java/professorpkg/ProfEditarPregunta.java</file>
+            <file>file:/home/damian/Documents/WebTechnologies/Proyecto/QuestionWriter/build/web/resources/XML/preguntaDB.xml</file>
+            <file>file:/home/damian/Documents/WebTechnologies/Proyecto/QuestionWriter/src/java/professorpkg/ProfEditarCuestionario.java</file>
+            <file>file:/home/damian/Documents/WebTechnologies/Proyecto/QuestionWriter/src/java/professorpkg/ProfNuevaParcial.java</file>
         </group>
     </open-files>
 </project-private>

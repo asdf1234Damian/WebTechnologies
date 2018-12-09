@@ -10,56 +10,32 @@ import org.jdom.Element;
 import org.jdom.JDOMException;
 import org.jdom.input.SAXBuilder;
 
-/**
- *
- * @author damian
- */
+
+
 public class ProfEditarPregunta extends HttpServlet {
-
-    public String fUpper(String in) {
-        String s = in.substring(0, 1).toUpperCase() + in.substring(1);
-        return s;
-    }
-
-    public String exists(Element e) {
-        if (e != null) {
-            return e.getTextTrim();
-        }
-        return "";
-    }
-
-    public String exists(Element e, String s) {
-        if (e != null) {
-            return e.getTextTrim();
-        }
-        return s;
-    }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //Recupera los datos de la sesion 
-        String autor = request.getSession().getAttribute("autor").toString();
-        String titulo = request.getSession().getAttribute("titulo").toString();
-        int index = Integer.parseInt(request.getParameter("posicion"));
-        request.getSession().setAttribute("autor", autor);
-        request.getSession().setAttribute("titulo", titulo);
-        request.getSession().setAttribute("indice", index);
+        String id = request.getParameter("id");
+        request.getSession().setAttribute("id", id);
         //Recupera la base de datos
-        String DBPath = request.getSession().getServletContext().getRealPath("/resources/XML/questionarioDB.xml");
+        String DBPath = request.getSession().getServletContext().getRealPath("/resources/XML/preguntaDB.xml");
         File DBfile = new File(DBPath);
         Element root;
+        Element preguntas;
         SAXBuilder SAXbuilder = new SAXBuilder();
         try {
             root = SAXbuilder.build(DBfile).getRootElement();
-            Element cuestionario = null;
-            for (int i = 0; i < root.getChildren().size(); i++) {
-                Element e = (Element) root.getChildren().get(i);
-                if (e.getChild("autor").getTextTrim().equals(autor) && e.getChild("titulo").getTextTrim().equals(titulo)) {
-                    cuestionario = (Element) root.getChildren().get(i);
+            preguntas = root.getChild("preguntas");
+            Element pregunta = null;
+            for (int i = 0; i < preguntas.getChildren().size(); i++) {
+                Element e = (Element) preguntas.getChildren().get(i);
+                if (e.getChild("id").getTextTrim().equals(id)) {
+                    pregunta = (Element) preguntas.getChildren().get(i);
                 }
             }
-            Element pregunta = (Element) cuestionario.getChild("preguntas").getChildren().get(index);
             Element opciones = pregunta.getChild("opciones");
             response.getWriter().print("<html>\n"
                     + "\n"
@@ -94,7 +70,7 @@ public class ProfEditarPregunta extends HttpServlet {
                     + "            <li><a href=\"#tabs-3\">Assets</a></li>\n"
                     + "          </ul>\n"
                     + "          <div id=\"tabs-1\">\n"
-                    + "            <h1>Pregunta " + fUpper(pregunta.getChild("tipo").getText()) + "</h1>\n"
+                    + "            <h1>Pregunta " + Utils.fUpper(pregunta.getChild("tipo").getText()) + "</h1>\n"
                     + "            <div class=\"holder\">\n"
                     + "              <input type=\"text\" name=\"contenido\" placeholder=\"" + pregunta.getChildText("contenido") + "\">\n"
                     + "              <br>\n"
@@ -113,15 +89,15 @@ public class ProfEditarPregunta extends HttpServlet {
                 response.getWriter().print("<tr>");
                 if (i < pregunta.getChild("respuestas").getChildren().size()) {
                     Element respuesta = (Element) pregunta.getChild("respuestas").getChildren().get(i);
-                    response.getWriter().print("<td><input type=\"text\" name=\"text" + current + "\" placeholder=\" " +exists(respuesta.getChild("contenido"), "Opcion " + current) +  "\"></td>\n");
+                    response.getWriter().print("<td><input type=\"text\" name=\"text" + current + "\" placeholder=\" " + Utils.exists(respuesta.getChild("contenido"), "Opcion " + current) + "\"></td>\n");
                     if (pregunta.getChildText("tipo").equals("sequencial")) {
-                        response.getWriter().print("<td><input type=\"text\" name=\"resp" + current + "\" placeholder=\"" + exists(respuesta.getChild("correspondencia"), "Correspondencia") + "\"></td>");
+                        response.getWriter().print("<td><input type=\"text\" name=\"resp" + current + "\" placeholder=\"" + Utils.exists(respuesta.getChild("correspondencia"), "Correspondencia") + "\"></td>");
                     } else {
-                        response.getWriter().print("<td><input type=\"text\" name=\"resp" + current + "\" placeholder=\"" + exists(respuesta.getChild("puntaje"), "Puntos") + "\"></td>");
+                        response.getWriter().print("<td><input type=\"text\" name=\"resp" + current + "\" placeholder=\"" + Utils.exists(respuesta.getChild("puntaje"), "Puntos") + "\"></td>");
                     }
                 } else {
                     if (pregunta.getChildText("tipo").equals("sequencial")) {
-                        response.getWriter().print("<td><input type=\"text\" name=\"text" + current + "\" placeholder=\"Opcion " + current + "\"></td>\n <td><input type=\"text\" name=\"resp" + current + "\" placeholder=\"Correspondencia "+current+"\"></td>\n");
+                        response.getWriter().print("<td><input type=\"text\" name=\"text" + current + "\" placeholder=\"Opcion " + current + "\"></td>\n <td><input type=\"text\" name=\"resp" + current + "\" placeholder=\"Correspondencia " + current + "\"></td>\n");
                     } else {
                         response.getWriter().print("<td><input type=\"text\" name=\"text" + current + "\" placeholder=\"Opcion " + current + "\"></td>\n <td><input type=\"text\" name=\"resp" + current + "\" placeholder=\"Puntos\"></td>\n");
                     }
@@ -138,26 +114,12 @@ public class ProfEditarPregunta extends HttpServlet {
                     + "          <div id=\"tabs-2\">\n"
                     + "            <button type=\"button\" class=\"btn\" name=\"button\" id=\"button1\"> FeedBack?</button>\n"
                     + "            <div id=\"effect1\">\n"
-                    + "              <input type=\"text\" name=\"sfeed\" placeholder=\"Initial Feedback: " + exists(opciones.getChild("feedbackInicial")) + "\">\n"
-                    + "              <input type=\"text\" name=\"efeed\" placeholder=\"Evaluate Feedback: " + exists(opciones.getChild("feedbackEvaluate")) + "\">\n"
-                    + "              <input type=\"text\" name=\"cfeed\" placeholder=\"Correct Feedback: " + exists(opciones.getChild("feedbackCorrecto")) + "\">\n"
-                    + "              <input type=\"text\" name=\"ifeed\" placeholder=\"Incorrect Feedback: " + exists(opciones.getChild("feedbackIncorrecto")) + "\">\n"
-                    + "              <input type=\"text\" name=\"tfeed\" placeholder=\"Tries Feedback: " + exists(opciones.getChild("feedbackTries")) + "\">\n"
-                    + "\n"
+                    + "              <input type=\"text\" name=\"sfeed\" placeholder=\"Initial Feedback: " + Utils.exists(opciones.getChild("feedbackInicial")) + "\">\n"
+                    + "              <input type=\"text\" name=\"efeed\" placeholder=\"Evaluate Feedback: " + Utils.exists(opciones.getChild("feedbackEvaluate")) + "\">\n"
+                    + "              <input type=\"text\" name=\"cfeed\" placeholder=\"Correct Feedback: " + Utils.exists(opciones.getChild("feedbackCorrecto")) + "\">\n"
+                    + "              <input type=\"text\" name=\"ifeed\" placeholder=\"Incorrect Feedback: " + Utils.exists(opciones.getChild("feedbackIncorrecto")) + "\">\n"
+                    + "              <input type=\"text\" name=\"tfeed\" placeholder=\"Tries Feedback: " + Utils.exists(opciones.getChild("feedbackTries")) + "\">\n"
                     + "            </div>\n"
-                    + "            <button type=\"button\" class=\"btn\" name=\"button\" id=\"button2\"> KnowledgeTrack</button>\n"
-                    + "            <div id=\"effect2\">\n"
-                    + "              <input type=\"text\" name=\"weight\" placeholder=\"Weighting: " + exists(opciones.getChild("weighting")) + "\">\n"
-                    + "            </div>\n"
-                    + "            <fieldset>\n"
-                    + "              <legend>Navigation </legend>\n"
-                    + "              <label for=\"radio-1\">Off</label>\n"
-                    + "              <input type=\"radio\" name=\"Navigation\" id=\"radio-1\" class=\"radio\" value=\"Off\">\n"
-                    + "              <label for=\"radio-2\">Next Button</label>\n"
-                    + "              <input type=\"radio\" name=\"Navigation\" id=\"radio-2\" class=\"radio\" value=\"Next\">\n"
-                    + "              <label for=\"radio-3\">Auto Goto Next Frame</label>\n"
-                    + "              <input type=\"radio\" name=\"Navigation\" id=\"radio-3\" class=\"radio\" value=\"Goto\">\n"
-                    + "            </fieldset>\n"
                     + "          </div>\n"
                     + "          <div id=\"tabs-3\">\n"
                     + "            <input type=\"file\" name=\"file\" >\n"

@@ -1,0 +1,26 @@
+html {
+  background-color: rgb(203, 203, 203);
+}
+
+.columnA {
+  float: left;
+  width: 33.33%;
+  padding: 5px;
+}
+
+.columnB {
+  float: right;
+  width: 33.33%;
+  padding: 5px;
+}
+
+input[type=submit] {
+  visibility: hidden;
+}
+
+.dragg{
+  width: 150px;
+  height: 150px;
+  padding: 0.5em;
+  background-color: black;
+}

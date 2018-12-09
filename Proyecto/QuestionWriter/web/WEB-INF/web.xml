@@ -80,6 +80,18 @@
         <servlet-name>GuardarCambiosPregunta</servlet-name>
         <servlet-class>professorpkg.GuardarCambiosPregunta</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ProfVerCuestionario</servlet-name>
+        <servlet-class>professorpkg.ProfVerCuestionario</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DesplegarPreg</servlet-name>
+        <servlet-class>DesplegarPreg</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GuardarCambiosCuestionario</servlet-name>
+        <servlet-class>professorpkg.GuardarCambiosCuestionario</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -155,6 +167,18 @@
     <servlet-mapping>
         <servlet-name>GuardarCambiosPregunta</servlet-name>
         <url-pattern>/GuardarCambiosPregunta</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProfVerCuestionario</servlet-name>
+        <url-pattern>/ProfVerCuestionario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DesplegarPreg</servlet-name>
+        <url-pattern>/DesplegarPreg</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GuardarCambiosCuestionario</servlet-name>
+        <url-pattern>/GuardarCambiosCuestionario</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

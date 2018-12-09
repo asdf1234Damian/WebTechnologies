@@ -1,0 +1,90 @@
+<dataBase xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="pregunta.xsd">
+  <current>3</current>
+  <preguntas>
+    <pregunta>
+      <id>1</id>
+      <autor>asdf1234damian@gmail.com</autor>
+      <tipo>secuencial</tipo>
+      <contenido>Pregunta 1
+      </contenido>
+      <opciones>
+        <feedbackCorrecto>correcto</feedbackCorrecto>
+        <feedbackIncorrecto>icorrecto</feedbackIncorrecto>
+        <feedbackInicial>inicial</feedbackInicial>
+        <feedbackEvaluate>evaluate</feedbackEvaluate>
+        <feedbackTries>tries</feedbackTries>
+        <intentos>3</intentos>
+      </opciones>
+      <respuestas>
+        <respuesta>
+          <contenido>a</contenido>
+          <puntaje>5</puntaje>
+        </respuesta>
+      </respuestas>
+    </pregunta>
+    <pregunta>
+      <id>2</id>
+      <autor>asdf1234damian@gmail.com</autor>
+      <tipo>parcial</tipo>
+      <contenido>pregunta 2
+      </contenido>
+      <opciones>
+        <feedbackCorrecto>correcto</feedbackCorrecto>
+        <feedbackIncorrecto>icorrecto</feedbackIncorrecto>
+        <feedbackInicial>inicial</feedbackInicial>
+        <feedbackEvaluate>evaluate</feedbackEvaluate>
+        <feedbackTries>tries</feedbackTries>
+        <intentos>3</intentos>
+      </opciones>
+      <respuestas>
+        <respuesta>
+          <contenido>a</contenido>
+          <puntaje>5</puntaje>
+        </respuesta>
+      </respuestas>
+    </pregunta>
+
+    <pregunta>
+      <id>3</id>
+      <autor>asdf1234damian@gmail.com</autor>
+      <tipo>parcial</tipo>
+      <contenido>pregunta 3</contenido>
+      <opciones>
+        <feedbackCorrecto>correcto</feedbackCorrecto>
+        <feedbackIncorrecto>icorrecto</feedbackIncorrecto>
+        <feedbackInicial>inicial</feedbackInicial>
+        <feedbackEvaluate>evaluate</feedbackEvaluate>
+        <feedbackTries>tries</feedbackTries>
+        <intentos>3</intentos>
+      </opciones>
+      <respuestas>
+        <respuesta>
+          <contenido>a</contenido>
+          <puntaje>5</puntaje>
+        </respuesta>
+      </respuestas>
+    </pregunta>
+
+    <pregunta>
+      <id>4</id>
+      <autor>peredo@gmia.com</autor>
+      <tipo>parcial</tipo>
+      <contenido>pregunta 4</contenido>
+      <opciones>
+        <feedbackCorrecto>correcto</feedbackCorrecto>
+        <feedbackIncorrecto>icorrecto</feedbackIncorrecto>
+        <feedbackInicial>inicial</feedbackInicial>
+        <feedbackEvaluate>evaluate</feedbackEvaluate>
+        <feedbackTries>tries</feedbackTries>
+        <intentos>3</intentos>
+      </opciones>
+      <respuestas>
+        <respuesta>
+          <contenido>a</contenido>
+          <puntaje>5</puntaje>
+        </respuesta>
+      </respuestas>
+    </pregunta>
+
+  </preguntas>
+</dataBase>
