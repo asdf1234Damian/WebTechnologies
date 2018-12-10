@@ -70,7 +70,7 @@ public class ProfVerPregunta extends HttpServlet {
                 if(respuesta.getChild("puntaje")!=null){
                     response.getWriter().print("  "+respuesta.getChild("puntaje").getText().toString()+"<h3>");    
                 }else{
-                    response.getWriter().print("->"+respuesta.getChild("correspondencia").getText().toString()+"<h3>");    
+                    response.getWriter().print("->"+Utils.exists(respuesta.getChild("correspondencia"))+"<h3>");    
             } 
             }
             

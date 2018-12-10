@@ -1,12 +1,11 @@
 <dataBase xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="pregunta.xsd">
-  <current>3</current>
+  <current>8</current>
   <preguntas>
     <pregunta>
       <id>1</id>
       <autor>asdf1234damian@gmail.com</autor>
       <tipo>secuencial</tipo>
-      <contenido>Pregunta 1
-      </contenido>
+      <contenido>Pregunta 1</contenido>
       <opciones>
         <feedbackCorrecto>correcto</feedbackCorrecto>
         <feedbackIncorrecto>icorrecto</feedbackIncorrecto>
@@ -19,6 +18,17 @@
         <respuesta>
           <contenido>a</contenido>
           <puntaje>5</puntaje>
+        </respuesta>
+        <respuesta>
+          <contenido>c</contenido>
+          <puntaje>2</puntaje>
+        </respuesta>
+        <respuesta>
+          <contenido>cc</contenido>
+          <puntaje>2</puntaje>
+        </respuesta>
+        <respuesta>
+          <contenido>w</contenido>
         </respuesta>
       </respuestas>
     </pregunta>
@@ -26,8 +36,7 @@
       <id>2</id>
       <autor>asdf1234damian@gmail.com</autor>
       <tipo>parcial</tipo>
-      <contenido>pregunta 2
-      </contenido>
+      <contenido>pregunta 2</contenido>
       <opciones>
         <feedbackCorrecto>correcto</feedbackCorrecto>
         <feedbackIncorrecto>icorrecto</feedbackIncorrecto>
@@ -43,7 +52,6 @@
         </respuesta>
       </respuestas>
     </pregunta>
-
     <pregunta>
       <id>3</id>
       <autor>asdf1234damian@gmail.com</autor>
@@ -64,27 +72,61 @@
         </respuesta>
       </respuestas>
     </pregunta>
-
     <pregunta>
-      <id>4</id>
-      <autor>peredo@gmia.com</autor>
+      <id>6</id>
+      <autor>asdf1234damian@gmail.com</autor>
       <tipo>parcial</tipo>
-      <contenido>pregunta 4</contenido>
-      <opciones>
-        <feedbackCorrecto>correcto</feedbackCorrecto>
-        <feedbackIncorrecto>icorrecto</feedbackIncorrecto>
-        <feedbackInicial>inicial</feedbackInicial>
-        <feedbackEvaluate>evaluate</feedbackEvaluate>
-        <feedbackTries>tries</feedbackTries>
-        <intentos>3</intentos>
-      </opciones>
+      <contenido>Don't ... ?</contenido>
       <respuestas>
         <respuesta>
-          <contenido>a</contenido>
+          <contenido>Wanna know</contenido>
+          <puntaje>1</puntaje>
+        </respuesta>
+        <respuesta>
+          <contenido>Let me down</contenido>
+          <puntaje>2</puntaje>
+        </respuesta>
+        <respuesta>
+          <contenido>Cry</contenido>
           <puntaje>5</puntaje>
         </respuesta>
+        <respuesta>
+          <contenido>Stop me now</contenido>
+          <puntaje>7</puntaje>
+        </respuesta>
       </respuestas>
+      <opciones>
+        <feedbackInicial>Initial</feedbackInicial>
+        <feedbackEvaluate>Evaluate</feedbackEvaluate>
+        <feedbackCorrecto>Correct</feedbackCorrecto>
+        <feedbackIncorrecto>Incorrect</feedbackIncorrecto>
+        <feedbackTries>Tries</feedbackTries>
+      </opciones>
     </pregunta>
-
+    <pregunta>
+      <id>8</id>
+      <autor>asdf1234damian@gmail.com</autor>
+      <tipo>secuencial</tipo>
+      <contenido>Relaciona las columnas</contenido>
+      <respuestas>
+        <respuesta>
+          <contenido>Don't</contenido>
+          <correspondencia>Stop me now</correspondencia>
+        </respuesta>
+        <respuesta>
+          <contenido>Cause</contenido>
+          <correspondencia>I'm having a good time</correspondencia>
+        </respuesta>
+        <respuesta>
+          <contenido>I'm flying around</contenido>
+          <correspondencia>In ecstasy</correspondencia>
+        </respuesta>
+        <respuesta>
+          <contenido>That's why they call me</contenido>
+          <correspondencia>Mister Fahrenheit</correspondencia>
+        </respuesta>
+      </respuestas>
+      <opciones />
+    </pregunta>
   </preguntas>
 </dataBase>
